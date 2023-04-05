@@ -4,7 +4,7 @@ def input_students
   # create an empty array
   students = []
   # getting more information from the user
-  information = gets.chomp.split(",")
+  information = gets.strip.split(",")
   name, cohort, age, country, birth = information
   # while the name is not empty, repeat this code
   while !name.empty?
@@ -12,7 +12,7 @@ def input_students
     students << { name: name, age: age, country: country, birth: birth, cohort: cohort }
     puts "Now we have #{students.count} students".center(50)
     # get another name from the user
-    name = gets.chomp
+    name = gets.strip
   end
   # return the array of students
   students
