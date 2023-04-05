@@ -22,15 +22,12 @@ def print_header
   puts "-------------"
 end
 
-# This print method is modified to only print the students whose names is shorter than 12 characters
+# This print method is refactored to a while loop instead of .each
 def print(students)
-  puts "Only showing the name of students whose name is shorter than 12 characters"
-  students.each_with_index do |student, index|
-    if student[:name].length < 12
-      puts "#{(index + 1)}. #{student[:name]} (#{student[:cohort]} cohort)"
-    else
-      nil
-    end
+  count = 0
+  while count < students.length
+    puts "#{count + 1}. #{students[count][:name]} (#{students[count][:cohort]} cohart)"
+    count += 1
   end
 end
 
