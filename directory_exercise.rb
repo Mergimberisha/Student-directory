@@ -1,14 +1,15 @@
 def input_students
-  puts "Please enter the names of the students"
+  puts "Please enter the name, age, country and country of birth of the student. Seperated by a comma ','"
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
-  # get the first name
-  name = gets.chomp
+  # getting more information from the user
+  information = gets.chomp.split(",")
+  name, age, country, birth = information
   # while the name is not empty, repeat this code
   while !name.empty?
     # add the student hash to the array
-    students << { name: name, cohort: :november }
+    students << { name: name, age: age, country: country, birth: birth, cohort: :november }
     puts "Now we have #{students.count} students"
     # get another name from the user
     name = gets.chomp
@@ -22,11 +23,11 @@ def print_header
   puts "-------------"
 end
 
-# This print method is refactored to a while loop instead of .each
+# This while loop now takes more information from the users input
 def print(students)
   count = 0
   while count < students.length
-    puts "#{count + 1}. #{students[count][:name]} (#{students[count][:cohort]} cohart)"
+    puts "#{count + 1}. #{students[count][:name]} is #{students[count][:age]} years old from#{students[count][:country]} and is born in #{students[count][:birth]} (#{students[count][:cohort]} cohart)"
     count += 1
   end
 end
